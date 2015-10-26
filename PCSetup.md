@@ -8,4 +8,4 @@ These labs will use **Visual Studio Code** as the development environment for bu
 You can download **Visual Studio Code** for Windows, Linux and OSX from [https://code.visualstudio.com/](https://code.visualstudio.com/).
 
 ##2. Install NodeJS
-Node is required in order to run various packages required for the Performance lab. You can install Node for your platform from [https://nodejs.org/en/](https://nodejs.org/en/).
+Node is required for Gulp and its plug-ins. You can install Node for your platform from [https://nodejs.org/en/](https://nodejs.org/en/).
