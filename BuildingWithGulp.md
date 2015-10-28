@@ -29,7 +29,7 @@ gulp.task('default', function () {
 7. Bask in the glory of your first Gulp task
 
 ##3. Minify CSS with gulp-minify-css
-We are now going to add a more usefull task, one that minifies your CSS files and stores them in the WWWroot folder.
+We are now going to add a more useful task, one that minifies your CSS files and stores them in the WWWroot folder.
 
 1. In the command prompt simply type `npm install gulp-minify-css` and hit enter. This will install the 'gulp-minify-css' plug-in.
 2. Add `var minifycss = require("gulp-minify-css")` which will initialise gulp-minify-css plug-in. Add this just beneath the existing var line.
@@ -53,7 +53,7 @@ gulp.task('default', [ 'css_task' ]);
 ##3. Manage vendor prefixes with gulp-autoprefixer
 We are now going to implement the hyphens CSS property which requires vendor prefixes to work in some browsers. We'll use Autoprefixer to manage the vendor prefixes via Gulp.
 
-1. Take a minute to take a look at [CanIUse.com](http://caniuse.com/#search=hyphens) to understand teh current level of support for the Hyphens CSS property. As I write, Chrome, Opera, Opera Mini, Android Browser and Chrome for Android do not support Hyphens and all other browsers require vendord prefixes.
+1. Take a minute to take a look at [CanIUse.com](http://caniuse.com/#search=hyphens) to understand the current level of support for the Hyphens CSS property. As I write, Chrome, Opera, Opera Mini, Android Browser and Chrome for Android do not support Hyphens and all other browsers require vendor prefixes.
 2. Open /begin/css/site.css and add this code
 ```
 p
