@@ -36,7 +36,6 @@ We are now going to add a more usefull task, one that minifies your CSS files an
 1. In the command prompt simply type `npm install gulp-minify-css` and hit enter. This will install the 'gulp-minify-css' plug-in.
 1. Add `var minifycss = require("gulp-minify-css")` which will initialise gulp-minify-css plug-in. Add this just beneath the existing var line.
 1. Add the following code beneath the var statement which will minify your CSS files and store the minified copies in the wwwroot folder.
-
 ```
 gulp.task("css_task", function () {
 	gulp.src("css/*.css")
@@ -44,10 +43,10 @@ gulp.task("css_task", function () {
 	.pipe(gulp.dest("wwwroot"));
 });
 ```
-
 1. Replace the existing default task to simply run 'css_task'
-```gulp.task('default', [ 'css_task' ]);```
-
+```
+gulp.task('default', [ 'css_task' ]);
+```
 1. In the command prompt simply type `gulp` and hit enter
 1. Look in the newly created wwwroot folder, you'll now see a set of minified CSS files; Site.css is the one we'll work on for the rest of the lab
 1. We now need to modify Index.html to reference the css files stored in wwwroot. Open Index.html and use Ctrl + F to find and replace all instances of `css/` with `wwwroot/`
