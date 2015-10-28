@@ -1,0 +1,32 @@
+h1
+{
+    color: red !important;
+}
+
+.navbar-brand{
+    padding: 10px;
+    margin: 0;
+}
+
+#logo{
+    height: 30px;
+    max-height: 30px;
+}
+
+.icon{
+    max-height: 25px;
+}
+
+.thumbnail{
+	-cursor:zoom-in;
+}
+
+.modal-body img{
+	max-width: 100%;
+}
+
+#gallery-container p{
+    max-height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
