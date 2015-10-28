@@ -3,6 +3,11 @@ h1
     color: red !important;
 }
 
+p
+{
+    hyphens: auto;
+}
+
 .navbar-brand{
     padding: 10px;
     margin: 0;
@@ -18,7 +23,7 @@ h1
 }
 
 .thumbnail{
-	-cursor:zoom-in;
+	cursor:-zoom-in;
 }
 
 .modal-body img{
