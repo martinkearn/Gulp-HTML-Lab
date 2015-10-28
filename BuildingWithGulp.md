@@ -76,3 +76,30 @@ gulp.task("css_task", function () {
 7. In the command prompt simply type `gulp` and hit enter
 8. Open wwwroot/site.css and note that the css you entered in step 2 has been updated to `p{-webkit-hyphens:auto;-moz-hyphens:auto;-ms-hyphens:auto;hyphens:auto}`
 9. Refresh the site in either Edge, Internet Explorer or Firefox and note that the paragraphs are now hypenated
+
+##3. Add a watch task
+Right now, you have to manually run gulp for the tasks to be executed. Gulp has a feature called a 'watch task' which makes it possible for tasks to run whenever a file is changed.
+
+1. In GulpFile,js, add the following task
+```
+gulp.task('csswatch_task', function() {
+	gulp.watch('css/*.css', ['css_task']);
+});
+```
+2. Update the default task to include the csswatch_task
+```
+gulp.task('default', [ 'css_task', 'csswatch_task' ]);
+```
+3. In the command prompt simply type `gulp` and hit enter. This will initialise the watch task. Leave the command prompt open
+4. Open /css/site.css and change the colour of the H1 to `red !important;`. It should look like this:
+```
+h1
+{
+    color: red !important;
+}
+```
+5. Save site.css and note that the Gulp task automatically runs in the command window
+6. Note that the minified CSS in wwwroot/site.css has been updated with the new H1 colour
+7. Refresh the browser and note that the H1 is now red
+
+## The end
