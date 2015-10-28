@@ -16,26 +16,24 @@ Gulp will now be installed to your project
 Gulp operates based on instructions in a file called GulpFile.js. This is a simple JavaScript file that contains a series of tasks that instruct gulp what to do.
 
 1. Create a file beneath the 'begin' folder called `GulpFile.js`
-1. Add `var gulp = require('gulp');` which will initialise Gulp
-1. Add this default task which simply writes "hello world" to the console
-
+2. Add `var gulp = require('gulp');` which will initialise Gulp
+3. Add this default task which simply writes "hello world" to the console
 ```
 gulp.task('default', function () {
 	console.log('Hello world');
 });
 ```
-
-1. Save the file
-1. In the command prompt simply type `gulp` and hit enter
-1. Note that "hello world" was written to the console
-1. Bask in the glory of your first Gulp task
+4. Save the file
+5. In the command prompt simply type `gulp` and hit enter
+6. Note that "hello world" was written to the console
+7. Bask in the glory of your first Gulp task
 
 ##3. Minify CSS with gulp-minify-css
 We are now going to add a more usefull task, one that minifies your CSS files and stores them in the WWWroot folder.
 
 1. In the command prompt simply type `npm install gulp-minify-css` and hit enter. This will install the 'gulp-minify-css' plug-in.
-1. Add `var minifycss = require("gulp-minify-css")` which will initialise gulp-minify-css plug-in. Add this just beneath the existing var line.
-1. Add the following code beneath the var statement which will minify your CSS files and store the minified copies in the wwwroot folder.
+2. Add `var minifycss = require("gulp-minify-css")` which will initialise gulp-minify-css plug-in. Add this just beneath the existing var line.
+3. Add the following code beneath the var statement which will minify your CSS files and store the minified copies in the wwwroot folder.
 ```
 gulp.task("css_task", function () {
 	gulp.src("css/*.css")
@@ -43,11 +41,38 @@ gulp.task("css_task", function () {
 	.pipe(gulp.dest("wwwroot"));
 });
 ```
-1. Replace the existing default task to simply run 'css_task'
+4. Replace the existing default task to simply run 'css_task'
 ```
 gulp.task('default', [ 'css_task' ]);
 ```
-1. In the command prompt simply type `gulp` and hit enter
-1. Look in the newly created wwwroot folder, you'll now see a set of minified CSS files; Site.css is the one we'll work on for the rest of the lab
-1. We now need to modify Index.html to reference the css files stored in wwwroot. Open Index.html and use Ctrl + F to find and replace all instances of `css/` with `wwwroot/`
-1. Save the file and check that it still renders correctly in a browser
+5. In the command prompt simply type `gulp` and hit enter
+6. Look in the newly created wwwroot folder, you'll now see a set of minified CSS files; Site.css is the one we'll work on for the rest of the lab
+7. We now need to modify Index.html to reference the css files stored in wwwroot. Open Index.html and use Ctrl + F to find and replace all instances of `css/` with `wwwroot/`
+8. Save the file and check that it still renders correctly in a browser
+
+##3. Manage vendor prefixes with gulp-autoprefixer
+We are now going to implement the hyphens CSS property which requires vendor prefixes to work in some browsers. We'll use Autoprefixer to manage the vendor prefixes via Gulp.
+
+1. Take a minute to take a look at [CanIUse.com](http://caniuse.com/#search=hyphens) to understand teh current level of support for the Hyphens CSS property. As I write, Chrome, Opera, Opera Mini, Android Browser and Chrome for Android do not support Hyphens and all other browsers require vendord prefixes.
+2. Open /begin/css/site.css and add this code
+```
+p
+{
+	hyphens: auto;
+}
+```
+3. Save Site.css
+4. In the command prompt simply type `npm install gulp-autoprefixer` and hit enter. This will install the 'gulp-autoprefixer' plug-in.
+5. Add `var autoprefixer = require("gulp-autoprefixer")` which will initialise gulp-autoprefixer plug-in. Add this just beneath the existing var lines.
+6. Add the `.pipe(autoprefixer())` just beneath `gulp.src("css/*.css")` line in the css_task. The finished task should look like this:
+```
+gulp.task("css_task", function () {
+	gulp.src("css/*.css")
+	.pipe(autoprefixer())
+	.pipe(minifycss())
+	.pipe(gulp.dest("wwwroot"));
+});
+```
+7. In the command prompt simply type `gulp` and hit enter
+8. Open wwwroot/site.css and note that the css you entered in step 2 has been updated to `p{-webkit-hyphens:auto;-moz-hyphens:auto;-ms-hyphens:auto;hyphens:auto}`
+9. Refresh the site in either Edge, Internet Explorer or Firefox and note that the paragraphs are now hypenated
