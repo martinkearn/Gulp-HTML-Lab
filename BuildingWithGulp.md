@@ -3,6 +3,8 @@ In this lab, we'll use [Visual Studio Code](https://code.visualstudio.com/) to a
 
 We'll also look at configuring a watch task to ensure Gulp runs whenever certain files are changed.
 
+For a quick version of this guide see [BuildingWithGulp-DemoScript.md](BuildingWithGulp-DemoScript.md) 
+
 ##1. Install Gulp
 Gulp is installed via the Node Package Manager (npm). It is very simple to install via the command prompt
 
