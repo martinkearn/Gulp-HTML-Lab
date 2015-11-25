@@ -4,7 +4,7 @@ This is a quick version of [BuildingWithGulp.md](BuildingWithGulp.md) which can 
 ##1. Install Gulp
 1. In Visual Studio Code, right-click the 'begin' folder and choose 'Open in Command Prompt'
 1. Run `npm install gulp`
-1. Leave your command prompt open throughout the lab
+2. Leave your command prompt open throughout the lab
 
 ##2. Create a Gulp file
 1. Create a file beneath the 'begin' folder called `GulpFile.js`
@@ -63,7 +63,7 @@ gulp.task("css_task", function () {
 8. Open wwwroot/site.css and note that the css has been updated to `p{-webkit-hyphens:auto;-moz-hyphens:auto;-ms-hyphens:auto;hyphens:auto}`
 9. Refresh. Paragraphs are now hypenated
 
-##3. Add a watch task
+##4. Add a watch task
 1. In GulpFile,js, add
 ```
 gulp.task('csswatch_task', function() {
