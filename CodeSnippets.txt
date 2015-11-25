@@ -1,0 +1,39 @@
+2. Create a Gulp file
+=====================
+
+var gulp = require('gulp'); 
+
+gulp.task('default', function () {
+    console.log('Hello world');
+});
+
+3. Minify CSS with gulp-minify-css
+==================================
+
+var minifycss = require("gulp-minify-css");
+
+gulp.task("css_task", function () {
+    gulp.src("css/*.css")
+    .pipe(minifycss())
+    .pipe(gulp.dest("wwwroot"));
+});
+
+gulp.task('default', [ 'css_task' ]);
+
+4. Manage vendor prefixes with gulp-autoprefixer
+================================================
+
+npm install gulp-autoprefixer 
+
+var autoprefixer = require("gulp-autoprefixer") 
+
+.pipe(autoprefixer())  
+
+5. Add a watch task
+===================
+
+gulp.task('csswatch_task', function() {
+    gulp.watch('css/*.css', ['css_task']);
+});
+
+gulp.task('default', [ 'css_task', 'csswatch_task' ]);
